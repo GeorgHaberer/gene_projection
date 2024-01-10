@@ -67,13 +67,14 @@ class Coords:
 
 
     def __lt__(self, other : Coords) -> bool:
-
+        """element is lesser if alphanumerical sort of (1) contig ID, or (2) its genomic
+        minimum coordinate or (3) its genomic maximum coordinate is less"""
         return (self.contigID, self.minimum(), self.maximum()) < (other.contigID, other.minimum(),
                                                                   other.maximum())
 
 
     def __str__(self) -> str:
-
+        """simple print function, mainly diagnostic purposes"""
         return "%s\t%s\t%s\t%s" %(self.contigID, self.strand, self.beg, self.end)
 
 
