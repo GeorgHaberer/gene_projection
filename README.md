@@ -17,11 +17,12 @@
   + has the flexibility to include additional aligners or third-party tools,
   + and is scalable to large pangenome sets.
 
-The homology-based gene transfer or annotation also includes several potential limitations a user should be aware of, in particular:
-
-* genotype-specific exon-intron structures may be insufficiently or incorrectly modelled by the representative genes
-* UTRs rely on the UTRs of the representative gene and may not reflect genotype-specific UTRs
-* alien introgressions eg by horizontal gene transfer is likely not detected.
+> [!NOTE] 
+> The homology-based gene transfer or annotation also includes several potential limitations a user should be aware of, in particular:
+> 
+> * genotype-specific exon-intron structures may be insufficiently or incorrectly modelled by the representative genes
+> * UTRs rely on the UTRs of the representative gene and may not reflect genotype-specific UTRs
+> * alien introgressions eg by horizontal gene transfer is likely not detected.
 
 However, BUSCO analysis and orthologous gene families by orthofinder showed that the gene projection pipeline produces results for projected gene contents that are highly comparable to evidence-based gene annotations.
 
