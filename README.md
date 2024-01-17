@@ -47,9 +47,9 @@ In addition, one of the following alignment tools should be installed (only mini
 
 blabla
 
-*Fig1. Pipeline preprocessing steps.
+** Fig1. Pipeline preprocessing steps. **
 <p align="center">
-  <img src="/images/preprocess_overview.png" width="558"> # height="660">
+  <img src="/images/preprocess_overview.png" width="600"> # height="660">
 </p>
 
 
