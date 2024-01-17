@@ -46,8 +46,8 @@ In addition, one of the following alignment tools should be installed (only mini
 
 blabla
 
+<img src="/images/preprocess_overview.png" width="100" height="200">
 
-![Overview of preprocessing steps in the pipeline.](/images/preprocess_overview.png)
 
 
 
