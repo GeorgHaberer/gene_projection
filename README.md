@@ -44,9 +44,19 @@ In addition, one of the following alignment tools should be installed (only mini
 
 ## 3. Principle Workflow
 
+<p align="center">
+<figure>
+  <img
+  src="/images/preprocess_overview.png"
+  alt="Fig.1: Pipeline preprocessing steps">
+  width="560"
+  <figcaption>MDN Logo</figcaption>
+</figure>
+</p>
+
 blabla
 <p align="center">
-  <img src="/images/preprocess_overview.png" alt="Fig.1: Pipeline preprocessing steps"width="558" height="660">
+  <img src="/images/preprocess_overview.png" alt="Fig.1: Pipeline preprocessing steps" width="558" height="660">
 </p>
 
 
