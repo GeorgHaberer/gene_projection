@@ -25,3 +25,24 @@ The homology-based gene transfer or annotation also includes several potential l
 
 However, BUSCO analysis and orthologous gene families by orthofinder showed that the gene projection pipeline produces results for projected gene contents that are highly comparable to evidence-based gene annotations.
 
+## 2. Requirements
+
+A fairly powerful workstation (64 bit) with at least 16 Gb RAM, better 32-64 Gb for runs using multiple cores is recommended. You may have to adjust the number of parallel cpus in the scripts to your resources. For very large pan-genome projects, or to gain additional speed-up, the analysis could be run in a batch queue. 
+
+The following software is required:
+- python >=3.8 (https://www.python.org/)
+- biopython >=1.8 (https://biopython.org)
+
+
+In addition, one of the following alignment tools should be installed (only minimap2 currently supported in the repository):
+
+- minimap2 (https://github.com/lh3/minimap2)
+
+- miniprot (https://github.com/lh3/miniprot)
+- gmap (https://github.com/juliangehring/GMAP-GSNAP/tree/master)
+- blat (https://github.com/djhshih/blat; conda or UCSC genome hub https://hgdownload.cse.ucsc.edu/admin/exe/)
+
+## 3. Principle Workflow
+
+
+
