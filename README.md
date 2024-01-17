@@ -45,8 +45,11 @@ In addition, one of the following alignment tools should be installed (only mini
 ## 3. Principle Workflow
 
 blabla
+<p align="center">
+  <img src="/images/preprocess_overview.png" width="372" height="440">
+</p>
 
-<img src="/images/preprocess_overview.png" width="100" height="200">
+
 
 
 
