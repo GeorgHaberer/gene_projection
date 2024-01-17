@@ -47,7 +47,7 @@ In addition, one of the following alignment tools should be installed (only mini
 blabla
 
 
-![Overview of preprocessing steps in the pipeline.] (https://github.com/GeorgHaberer/gene_projection/images/preprocess_overview.png)
+![Overview of preprocessing steps in the pipeline.](/images/preprocess_overview.png)
 
 
 
