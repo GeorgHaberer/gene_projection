@@ -78,9 +78,9 @@ blalbla
 
 A publication of the pipeline is in progress, in the meantime, if you use code from this repository, please refer to it as github URL, and include one of the following references:
 
-[1^] Walkowiak, S, Gao, L, Monat, C, Haberer G, et al. Multiple wheat genomes reveal global variation in modern breeding. Nature 588, 277–283 (2020). https://doi.org/10.1038/s41586-020-2961-x
+[^1]: Walkowiak, S, Gao, L, Monat, C, Haberer G, et al. Multiple wheat genomes reveal global variation in modern breeding. Nature 588, 277–283 (2020). https://doi.org/10.1038/s41586-020-2961-x
 
-[2^] Jayakodi M, Padmarasu S, Haberer G, et al. The barley pan-genome reveals the hidden legacy of mutation breeding. Nature. 2020 Dec;588(7837):284-289. doi: 10.1038/s41586-020-2947-8.
+[^2]: Jayakodi M, Padmarasu S, Haberer G, et al. The barley pan-genome reveals the hidden legacy of mutation breeding. Nature. 2020 Dec;588(7837):284-289. doi: 10.1038/s41586-020-2947-8.
 
 
 
