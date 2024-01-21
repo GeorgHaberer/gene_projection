@@ -24,12 +24,12 @@
 > * UTRs rely on the UTRs of the representative gene and may not reflect genotype-specific UTRs
 > * alien introgressions eg by horizontal gene transfer is likely not detected.
 
-However, BUSCO analysis and orthologous gene families by orthofinder showed that the gene projection pipeline produces results for projected gene contents that are highly comparable to evidence-based gene annotations.
+However, in several crop genome projects, BUSCO analysis and orthologous gene families by orthofinder showed that the gene projection pipeline produces results for projected gene contents that are highly comparable to evidence-based gene annotations.
 
 
 ## 2. Requirements
 
-A fairly powerful workstation (64 bit) with at least 16 Gb RAM, better 32-64 Gb for runs using multiple cores is recommended. You may have to adjust the number of parallel cpus in the scripts to your resources. For very large pan-genome projects, or to gain additional speed-up, the analysis could be run in a batch queue. 
+A fairly powerful workstation (64 bit) with at least 16 Gb RAM, better 32-64 Gb for runs using multiple cores is recommended. You may have to adjust the number of parallel cpus in the scripts to your resources. For very large pan-genome projects, or to gain additional speed-up, the analysis could/should be run in a batch queue system. 
 
 The following software is required:
 - python >=3.8 (https://www.python.org/)
@@ -45,12 +45,12 @@ For the preprocessing steps, several third-party tools should be available: a se
 Currently only minimap2 is supported in the repository but I am planning to provide additional integration for the following aligners:
 - miniprot (https://github.com/lh3/miniprot)
 - gmap (https://github.com/juliangehring/GMAP-GSNAP/tree/master)
-- blat (https://github.com/djhshih/blat; conda or UCSC genome hub https://hgdownload.cse.ucsc.edu/admin/exe/)
+- blat (UCSC hosts binary for various OS/architectures: http://hgdownload.soe.ucsc.edu/admin/exe/)
 
 
 ## 3. Principle Workflow
 
-The rationale of the pipeline is pretty simple: it maps the non-redundant transcripts of a previous annotation (the **source models**; preferably from a set of evidence-based annotations of closely related genotypes or species) to the genome sequences of the **target** genotypes/species and estimates from these matches the gene content by applying user-defined rules. There are two major steps, first preprocessing and mapping the input sequences, and second a step-wise and rule-based selection of non-overlapping matches. The following section provides a graphical scheme and explanation of the two steps.
+The gene projection pipeline utilizes homology mappings of a set of well supported or evidence-based gene models of a closely related species or genotype(s) - aka the **source models**,  to generate an accurate estimate of the target gene content. The final (structural) annotation is derived from the spliced alignments (aka **matches**) as a consensus which is derived The rationale of the pipeline is pretty simple: it maps the non-redundant transcripts of a previous annotation ; preferably from a set of evidence-based annotations of closely related genotypes or species) to the genome sequences of the **target** genotypes/species and estimates from these matches the gene content by applying user-defined rules. There are two major steps, first preprocessing and mapping the input sequences, and second a step-wise and rule-based selection of non-overlapping matches. The following section provides a graphical scheme and explanation of the two steps.
 
 ### 3.1. Preprocessing and Mapping
 
