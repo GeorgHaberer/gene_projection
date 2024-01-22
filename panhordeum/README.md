@@ -13,6 +13,21 @@ The projections started with the following input sequences and information avail
  - file listing transposon-related genes in above annotations: _<transposon.codes.txt>_
  - file listing plastid-related genes: _<plastid.codes.txt>_
 
+All analysis was performed on a desktop workstation AMD Ryzen 7600 with 48 Gb RAM and 2Tb PCI4.0 SSD harddisk. The following steps were performed to obtain the final projection:
+
+Nearly identical gene models were clustered using cd-hit (v4.8.1)[¹] to obtain a non-redundant set of source transcripts and proteins:
+> cd-hit -M 16000 -T 20 
+
 
  
  -  
+
+
+
+
+
+
+
+
+# references
+CD-HIT: accelerated for clustering the next generation sequencing data", Limin Fu, Beifang Niu, Zhengwei Zhu, Sitao Wu & Weizhong Li. Bioinformatics, (2012) 28:3150-3152
