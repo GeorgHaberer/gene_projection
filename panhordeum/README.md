@@ -39,10 +39,23 @@ The final result are _*raw.gff.gz_ files of all matches for each genotype in the
 
 ### b. projection steps/parameters
 
+Projections were computed for each genotype using the following command:
+> python run_geneprojection.py -r _run.list_ -o _proj_outroot_ --pfamfile _pfam.codes.txt_ --transposonfile _transposon.codes.txt_ --plastidfile _plastid.codes.txt_ --scorefile _maxscores.txt_
+
+The rules/filters for each round of insertion are shown in following table, for a description of the workflow and explanation of the rules see parent directory:
+
+| round | rule/features |
+| --- | --- |
+| 1 | contiguous ORF, start&stop codon, predicted gene, pfam domain, rel.score >= 0.85, unique |
+| 2 | contiguous ORF, start&stop codon, predicted gene, pfam domain, rel.score >= 0.95, non-unique |
+| 3 | contiguous ORF, start&stop codon, predicted gene, rel.score >= 0.85, unique |
+| 4 | contiguous ORF, start&stop codon, predicted gene, rel.score >= 0.95, non-unique |
+| 5 | contiguous ORF, predicted gene, pfam domain, rel.score >= 0.95, unique |
+| 6 | contiguous ORF, start&stop codon, plastid-related gene, rel.score >= 0.9, unique |
+| 7 | contiguous ORF, start&stop codon, transposon-related gene, rel.score >= 0.9, unique |
 
 
-
-## _Hordeum bulbosum projections (pan-bulbosum project)
+## _Hordeum bulbosum_ projections (pan-bulbosum project)
 
 
 
