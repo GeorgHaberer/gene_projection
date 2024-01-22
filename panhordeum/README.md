@@ -15,7 +15,7 @@ The projections started with the following input sequences and information avail
 
 All analysis was performed on a desktop workstation AMD Ryzen 7600 with 48 Gb RAM and 2Tb PCI4.0 SSD harddisk. The following steps were performed to obtain the final projection:
 
-# a. preprocessing steps
+### a. preprocessing steps
 
 Nearly identical gene models were clustered using cd-hit (v4.8.1)[¹] to obtain a non-redundant set of source transcripts and proteins:
 > cd-hit -M 16000 -T 20 -S 4 -c 0.99 -o _nr.protein.cdhit_ -i _protein.all.sources.fa_
@@ -37,10 +37,12 @@ Preprocessing was then run using the script run_preprocessing.py calling minimap
 
 The final result are _*raw.gff.gz_ files of all matches for each genotype in the respective output directories _project_outroot_/_genotype_name_ . 
 
-# b. projection steps/parameters
+### b. projection steps/parameters
 
 
 
+
+## _Hordeum bulbosum projections (pan-bulbosum project)
 
 
 
