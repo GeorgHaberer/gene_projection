@@ -7,9 +7,12 @@ This directory contains code applied to generate gene projections of two pan-gen
 ## _Hordeum vulgare_ projections (pan-barley project)
 
 The projections started with the following input sequences and information available from the evidence-based annotation of the 20 genotypes:
- - transcript sequences of (representatives) annotation of 20 genotypes : <transcript.all.sources.fa>
- - start position of start codon in transcripts and CDS size: <offsets.txt>
- - protein sequences of annotations of 20 genotypes: <protein.all.source.fa>
- - file listing transposon-related genes in above annotations: <transposon.codes.txt>
- - file listing plastid-related genes: <plastid.codes.txt>
+ - transcript sequences of (representatives) annotation of 20 genotypes : _<transcript.all.sources.fa>_
+ - start position of start codon in transcripts and CDS size: _<offsets.txt>_
+ - protein sequences of annotations of 20 genotypes: _<protein.all.source.fa>_
+ - file listing transposon-related genes in above annotations: _<transposon.codes.txt>_
+ - file listing plastid-related genes: _<plastid.codes.txt>_
+
+
+ 
  -  
