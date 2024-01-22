@@ -28,7 +28,10 @@ A local copy of the pfam database was obtained from https://ftp.ebi.ac.uk/pub/da
 
 
 Maximal attainable scores for each source model were retrieved from their self-alignments using script scoring_parallel.py in https://github.com/GeorgHaberer/gene_projection/edit/main/geproj_utils:
-> python scoring_parallel.py 
+> python scoring_parallel.py -p _nr.protein.cdhit_ -o _maxscores.txt_ -n 8
+
+
+
 
 
  
