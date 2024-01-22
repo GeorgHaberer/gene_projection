@@ -58,26 +58,34 @@ The principle outline of the preprocessing steps are shown in figure 1, the indi
   - concatenated transcript sequences of all species/genotypes in fasta format, generally the 'representative' sequence per locus and genotype : _<transcript.sources.all.fasta>_
   - a same fasta file for the protein sequences of the transcripts, the sequence identifier should match the transcript identifiers (otherwise you have to reformat your accessory input files) : _<protein.sources.all.fasta>_
 
+<p>
+  <br />
+</p>
 
 **Fig1. Pipeline preprocessing steps.**
 <p align="center">
   <img src="/images/preprocess_overview.png" width="600">
 </p>
 
+<p>
+  <br />
+</p>
 
 <p>
 1. clustering
    
-   This step helps to reduce the computational load for subsequent steps. Starting with representative protein sequences _<protein.sources.all.fasta>_, a simple cd-hit clustering with very strict parameters removes nearly identical sequences and  generates a non-redundant set of source ids. Typical command could be (but can be adjusted to the degree of redundancy by the user):
+   This step helps to reduce the computational load for downstream steps. Starting with representative protein sequences _<protein.sources.all.fasta>_, a simple cd-hit clustering with very strict parameters removes nearly identical sequences and  generates a non-redundant set of source ids. Typical command could be (but can be adjusted to the degree of redundancy by the user):
    > cd-hit -i _<protein.sources.all.fasta>_ -o _<protein.cdhit>_ -T 8 -d 80 -M 16000 -c 1.0 -S 4
 
-   Non-redundant protein sequences will be in _<protein.cdhit>_, and _<transcript.sources.all.fasta>_ can be subsequently reduced to _<transcript.sources.fasta>_ containing only non-redundant sequences
+   Non-redundant protein sequences will be in _<protein.cdhit>_ and  _<transcript.sources.all.fasta>_ is subsequently reduced to _<transcript.sources.fasta>_ containing only non-redundant transcript sequences.
+<br />
 </p>
 
 <p>
 2. quality-class binnning
 
-   The resulting _<protein.cdhit>_ from step 1 should be analyzed for plastid- and transposon-related genes. The latter are very common even in high quality annotations and can result in excessive mappings while the plastid-related genes can hint towards cp-genomic contaminations in the assembly. In both cases, transfer of these gene groups should be carefully and strictly controlled. Both gene classes are generally already detected and annotated in the genome project providing the input source models. If not, I retrieve this information from third party tools like PFAM searches and the AHRD ('a human readable description') pipeline by parsing keywords and key identifiers. Other valuable annotation tools include Mercator (https://www.plabipd.de/mercator_main.html) or eggnog (http://eggnog-mapper.embl.de/), or whatever your favorite annotation tool is. Final files for each gene class, transposon- and plastid-related, should be generated and should simply contain a transcript identifier per line.
+  The resulting _<protein.cdhit>_ from step 1 should be analyzed for plastid- and transposon-related genes. The latter are very common even in high quality annotations and can result in excessive mappings while the plastid-related genes can hint towards cp-genomic contaminations in the assembly. In both cases, transfer of these gene groups should be carefully and strictly controlled. Both gene classes are generally already detected and annotated in the genome project providing the input source models. If not, I retrieve this information from third party tools like PFAM searches and the AHRD ('a human readable description') pipeline by parsing keywords and key identifiers. Other valuable annotation tools include Mercator (https://www.plabipd.de/mercator_main.html) or eggnog (http://eggnog-mapper.embl.de/), or whatever your favorite annotation tool is. Final files for each gene class, transposon- and plastid-related, should be generated and should simply contain a transcript identifier per line.
+<br />
 </p>
 
 <p>
@@ -85,14 +93,23 @@ The principle outline of the preprocessing steps are shown in figure 1, the indi
 
    To get a uniform relative scoring of the matches, an estimate of the maximal attainable score for each input source model is required. To obtain such measurements, self-alignments of the sequences in _<protein.cdhit>_ are computed and stored in a scoring file listing per line transcript id and its self score. An example script for this task is provided in directory geproj_utils. It uses global pairwise alignment as implemented in biopython and the BLOSUM-62 matrix for scoring. Example usage could be something like:
    > python scoring_parallel.py -p _<protein.cdhit>_ -o _<maxscores.tab>_ -n 4
+<br />
 </p>
+
 <p>
 4. alignment to genome
 
+  Non-redundant transcripts are aligned to the genotype genome assembly to derive candidate matches. In the current version, minimap2 because of its high performance and speed. In principle, however, any splice-aware aligner could be used and implementation of several options is in preparation. The mapping pipeline is run as:
+> python run_preprocessing.py [args]
+>
+> python run_preprocessing.py -h shows all required arguments and options
+<br />
 </p>
 
 <p>
-7. match postprocessing
+5. match postprocessing
+
+  Postprocessing of matches has been integrated into the run_preprocessing.py script. 
 </p>
 
    
@@ -109,6 +126,10 @@ blalballa
 </p>
 
 blalbla
+
+<p>
+  <br />
+</p>
 
 ## 4. Citation
 
