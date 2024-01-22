@@ -3,6 +3,9 @@ This directory contains code applied to generate gene projections of two pan-gen
 > [!NOTE]
 > A general description of the workflow of the gene projection pipeline is desribed in detail in the parent directory: https://github.com/GeorgHaberer/gene_projection/edit/main
 
+<p>
+<br />
+</p>
 
 ## _Hordeum vulgare_ projections (pan-barley project)
 
@@ -43,7 +46,7 @@ Projections were computed for each genotype using the following command:
 > python run_geneprojection.py -r _run.list_ -o _proj_outroot_ --pfamfile _pfam.codes.txt_ --transposonfile _transposon.codes.txt_ --plastidfile _plastid.codes.txt_ --scorefile _maxscores.txt_
 
 The rules/filters for each round of insertion are shown in following table, for a description of the workflow and explanation of the rules see parent directory:
-
+<p>
 | round | rule/features |
 | --- | --- |
 | 1 | contiguous ORF, start&stop codon, predicted gene, pfam domain, rel.score >= 0.85, unique |
@@ -53,17 +56,16 @@ The rules/filters for each round of insertion are shown in following table, for 
 | 5 | contiguous ORF, predicted gene, pfam domain, rel.score >= 0.95, unique |
 | 6 | contiguous ORF, start&stop codon, plastid-related gene, rel.score >= 0.9, unique |
 | 7 | contiguous ORF, start&stop codon, transposon-related gene, rel.score >= 0.9, unique |
-
+<br />
+</p>
+<p>
+ <br />
+ <br />
+</p>
 
 ## _Hordeum bulbosum_ projections (pan-bulbosum project)
 
-
-
-
- 
- -  
-
-
+Code and paramters for this project were identical to the pan-barley project (see above). The only difference were the input protein and transcript sequences. The non-redundant protein and transcript sequences were complemented by the high-confidence, evidence-based annotation of genotype FB019_11_3. 
 
 
 
