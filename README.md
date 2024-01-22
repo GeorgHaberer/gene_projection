@@ -45,15 +45,18 @@ For the preprocessing steps, several third-party tools should be available: a se
 Currently only minimap2 is supported in the repository but I am planning to provide additional integration for the following aligners:
 - miniprot (https://github.com/lh3/miniprot)
 - gmap (https://github.com/juliangehring/GMAP-GSNAP/tree/master)
-- blat (UCSC hosts binary for various OS/architectures: http://hgdownload.soe.ucsc.edu/admin/exe/)
+- blat (UCSC hosts binary for various OS/architectures: http://hgdownload.cse.ucsc.edu/admin/exe/linux.x86_64/blat/)
 
 
 ## 3. Principle Workflow
 
-The gene projection pipeline utilizes homology mappings of a set of well supported or evidence-based gene models of a closely related species or genotype(s) - aka the **source models**,  to generate an accurate estimate of the target gene content. The final (structural) annotation is derived from the spliced alignments (aka **matches**) as a consensus which is derived The rationale of the pipeline is pretty simple: it maps the non-redundant transcripts of a previous annotation ; preferably from a set of evidence-based annotations of closely related genotypes or species) to the genome sequences of the **target** genotypes/species and estimates from these matches the gene content by applying user-defined rules. There are two major steps, first preprocessing and mapping the input sequences, and second a step-wise and rule-based selection of non-overlapping matches. The following section provides a graphical scheme and explanation of the two steps.
+The gene projection pipeline utilizes homology mappings (aka **matches**) of a set of well supported or evidence-based gene models of closely related species or genotype(s) - aka the **source models**,  to generate an accurate estimate of the target gene content. The final (structural) annotation is derived as a consensus annotation by insertion rules that can be defined by the user (see below). There are two major steps, preprocessing to map the source sequences and generate features and statistics of each source model and match to be applied in the selection rules, and the actual projection itself. The following sections provide graphical schemes and detailed explanation of both workflows.
 
 ### 3.1. Preprocessing and Mapping
 
+The principle outline of the preprocessing steps are show in figure 1, the individual tasks are numbered and described in detail below the figure. The specific third party software selected for each task can be substituted by similar tools. However, the described tool chain has been found to be high performant. The following input data is required for the preprocessing:
+  - concatenated transcript sequences of all species/genotypes in fasta format, generally the 'representative' sequence per locus and genotype : _<transcript.sources.all.fasta>_
+  - a same fasta file for the protein sequences of the transcripts, the sequence identifier should match the transcript identifiers (otherwise you have to reformat your accessory input files) : _<protein.sources.all.fasta>_
 
 
 **Fig1. Pipeline preprocessing steps.**
@@ -61,6 +64,9 @@ The gene projection pipeline utilizes homology mappings of a set of well support
   <img src="/images/preprocess_overview.png" width="600">
 </p>
 
+1. clustering
+   This step helps to reduce the computational load for subsequent steps. Starting with representative protein sequences _<protein.sources.all.fasta>_, a simple cd-hit clustering with very strict parameters removes nearly identical sequences and generates a non-redundant set of source ids.
+   
 
 ### 3.2. Annotation by Projections
 
