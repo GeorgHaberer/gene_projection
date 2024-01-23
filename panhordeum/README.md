@@ -64,7 +64,7 @@ The rules/filters for each round of insertion are shown in following table, for 
 
 ## _Hordeum bulbosum_ projections (pan-bulbosum project)
 
-Code and paramters for this project were identical to the pan-barley project (see above). The only difference were the input protein and transcript sequences. The non-redundant protein and transcript sequences of pan-barley (_nr.protein.cdhit_ and _nr.transcript.fa_) were complemented by the high-confidence, evidence-based annotation of genotype FB019_11_3. 
+Code and parameters for this project were identical to the pan-barley project (see above). The only difference were the input protein and transcript sequences: the non-redundant protein and transcript sequences of pan-barley (_nr.protein.cdhit_ and _nr.transcript.fa_) were complemented by the high-confidence, evidence-based annotation of genotype FB019_11_3. 
 
 
 <p>
