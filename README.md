@@ -130,10 +130,11 @@ Current features for the rule-based insertion are:
 
 | feature | value | description |
 | --- | --- | --- |
-| intstop | bool | whether the match ORF has internal stop codons or not |
+| intstop | bool | whether the match ORF has internal stop codons or not (contiguous ORF) |
 | hasstart | bool | ORF starts with start codon/ATG |
 | hasstop | bool | ORF ends with stop codon |
-| score ratio | float | ratio of match score / score of source |
+| complete | bool | ORF has both start and stop codon |
+| score ratio | float | ratio of match score / score of source; the closer at 1.0 the better|
 | source id | string | whether source triggering match is gene with or without pfam domain, transposon- or plastid-related |
 | unique | bool | whether matches triggered by the same source id have already been annotated |
 
