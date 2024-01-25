@@ -14,7 +14,7 @@ from coords import Coords
 from genedata import GeneLocus, mRNA, Cds
 
 #------------------------------------------------------------
-def parseTaggedGFF(fn : str, EXPLICIT_ALLOW_OVERLAP : bool = False) -> Union[dict, list]:
+def parseTaggedGFF(fn : str, EXPLICIT_ALLOW_OVERLAP : bool = False) -> Tuple[dict, list]:
     """parses GFF file <fn> to object data
     :return dict[gene id] -> GeneLocus, list of GeneLoci"""
 
