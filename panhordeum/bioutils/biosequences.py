@@ -8,7 +8,6 @@
 
 from __future__ import annotations
 
-from coordchain import CoordChain
 
 # -----------------------------------------------
 def complement(letter : str) -> str:
