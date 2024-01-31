@@ -8,7 +8,7 @@ import argparse
 from operator import attrgetter
 
 sys.path.append("/home/georg/PycharmProjects/bioutils")
-from bioparser.gffparser import parseTaggedGFF
+from gffparser import parseTaggedGFF
 
 
 # ----------------------------------------------------------------------------
