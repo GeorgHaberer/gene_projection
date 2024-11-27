@@ -8,13 +8,15 @@
 
   In contrast to other genome projects using the gene projection pipeline, in the pan-bulbosum project gene projection were only used to complement for high quality gene models potentially missed in a evidence-based annotation. Figure 1 shows a simplified graphical overview of the workflow, detailed descriptions, scripts and parameters are listed in the following chapters.
 
-  The following tools and modules were used and are required:
-  - python 3.9 or higher
-  - biopython v1.81
-  - bioutils modules from parent 
-  - CD-hit[[1]](#1)
-  - orthofinder [[2]](#2)
-  - 
+The following tools and modules were used and are required:
+- python 3.9 or higher
+- biopython v1.81
+- bioutils (https://github.com/GeorgHaberer/gene_projection/tree/main/panhordeum/bioutils) either copy scripts in same directory of bulbosum scripts or add to your PYTHONPATH
+- CD-hit[[1]](#1)
+- orthofinder [[2]](#2)
+- minimap2 [[3]](#3)
+- miniprot [[4]](#4)
+- blat v34 [[5]](#5)
 
 ## 2. Preprocessing data
 
