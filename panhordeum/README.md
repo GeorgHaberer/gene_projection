@@ -1,4 +1,4 @@
-This directory contains code applied to generate gene projections of two pan-genome projects. It provides a persistent and detailed description of the pipeline version and parameter settings used. The first project comprised 76 _Hordeum vulgare_ genotypes of which 20 were annotated based on genotype-specific transcriptome data, protein homologies and _de novo_ gene finders. Projections were computed for the residual 56 genotypes. The second project analyzed 11 _Hordeum bulbosum_ genotypes with one annotated by experimental evidences.
+This directory contains code applied to generate gene projections of two pan-genome projects. It provides a persistent and detailed description of the pipeline version and parameter settings used. The first project comprised 76 _Hordeum vulgare_ genotypes of which 20 were annotated based on genotype-specific transcriptome data, protein homologies and _de novo_ gene finders. Projections were computed for the residual 56 genotypes[^4]. The second project analyzed 11 _Hordeum bulbosum_ genotypes with one annotated by experimental evidences.
 
 > [!NOTE]
 > A general description of the workflow of the gene projection pipeline is desribed in detail in the parent directory: https://github.com/GeorgHaberer/gene_projection 
@@ -86,5 +86,7 @@ Code and parameters for this project were identical to the pan-barley project (s
 [²] Pfam: The protein families database in 2021: J. Mistry, S. Chuguransky, L. Williams, M. Qureshi, G.A. Salazar, E.L.L. Sonnhammer, S.C.E. Tosatto, L. Paladin, S. Raj, L.J. Richardson, R.D. Finn, A. Bateman, Nucleic Acids Research (2021) doi: 10.1093/nar/gkaa913 
 
 [³] Li, H. (2021). New strategies to improve minimap2 alignment accuracy. Bioinformatics, 37:4572-4574. doi:10.1093/bioinformatics/btab705
+
+[4] Jayakodi, M. et al. (2024). Structural variation in the pangenome of wild and domesticated barley. Nature (2024). https://doi.org/10.1038/s41586-024-08187-1
 
 
