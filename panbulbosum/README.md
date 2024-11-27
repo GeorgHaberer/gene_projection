@@ -49,3 +49,25 @@ The following tools and modules were used and are required:
 <a id="1">[1]</a> 
 Weizhong Li, Adam Godzik, Cd-hit: a fast program for clustering and comparing large sets of protein or nucleotide sequences, Bioinformatics, Volume 22, Issue 13, July 2006, Pages 1658–1659, https://doi.org/10.1093/bioinformatics/btl158
 
+<a id="2">[2]</a>
+Emms, D.M., Kelly, S. OrthoFinder: solving fundamental biases in whole genome comparisons dramatically improves orthogroup inference accuracy. Genome Biol 16, 157 (2015). https://doi.org/10.1186/s13059-015-0721-2
+see also https://github.com/davidemms/OrthoFinder
+
+<a id="3">[3]</a>
+Li, H. (2021). New strategies to improve minimap2 alignment accuracy. Bioinformatics, 37:4572-4574. doi:10.1093/bioinformatics/btab705
+see also https://github.com/lh3/minimap2
+
+<a id="4">[4]</a>
+Heng Li, Protein-to-genome alignment with miniprot, Bioinformatics, Volume 39, Issue 1, January 2023, btad014, https://doi.org/10.1093/bioinformatics/btad014
+see also https://github.com/lh3/miniprot
+
+<a id="5">[5]</a>
+Kent WJ. BLAT--the BLAST-like alignment tool. Genome Res. 2002 Apr;12(4):656-64. doi: 10.1101/gr.229202. PMID: 11932250; PMCID: PMC187518
+see also
+
+<a id="6">[6]</a>
+Pfam: The protein families database in 2021: J. Mistry, S. Chuguransky, L. Williams, M. Qureshi, G.A. Salazar, E.L.L. Sonnhammer, S.C.E. Tosatto, L. Paladin, S. Raj, L.J. Richardson, R.D. Finn, A. Bateman, Nucleic Acids Research (2021) doi: 10.1093/nar/gkaa913
+
+
+
+
