@@ -43,11 +43,11 @@ The following tools and modules were used and are required:
 
 > orthofinder -t 40 -a 8 <bulb.evi.proteins>
 
-  The directory <bulb.evi.proteins> contained for each haplotype of the evidence-based annotated _H.bulbosum_ genotypes the representative high confidence protein models. Hierarchical orthogroups were extracted from the file <N0.tsv> (see orthofinder manual [[2]](#2)) and number of each genotype per group was determined by the script make_orthocounts.py.
+  The directory <bulb.evi.proteins> contained for each haplotype of the evidence-based annotated _H.bulbosum_ genotypes the representative high confidence protein models. Hierarchical orthogroups were extracted from the file <N0.tsv> (see orthofinder manual [[2]](#2)). For each source transcript/protein, the number of orthologs was determined by the script make_orthocounts.py.
 
 ### 2.3 Additional preprocessing steps
 
-
+  UTR (5') sizes of source models were computed from the GFF files of the evidence-based annotations using the script make_offsets.py and saved in the <hbulb.offsets.txt> file.
 
 
 
