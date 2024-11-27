@@ -6,12 +6,21 @@
 
 ## 1. Overview
 
-  In contrast to other genome projects using the gene projection pipeline, in the pan-bulbosum project gene projection were only used to complement for high quality gene models potentially missed in a evidence-based annotation. Figure 1 shows a simplified graphical overview of the workflow, detailed descriptions, scripts and parameters are listed in the follwoing chapters.
+  In contrast to other genome projects using the gene projection pipeline, in the pan-bulbosum project gene projection were only used to complement for high quality gene models potentially missed in a evidence-based annotation. Figure 1 shows a simplified graphical overview of the workflow, detailed descriptions, scripts and parameters are listed in the following chapters.
 
 
 ## 2. Preprocessing data
 
-  Input for the gene projections were evidence-based gene annotations as described in the Materials and Methods section of the manuscript. These models were first clustered by CD-hit[[1]](#1)
+  Input for the gene projections were evidence-based gene annotations as described in the Materials and Methods section of the manuscript. These proteins were clustered by CD-hit[[1]](#1) to obtain the input source models for the pipeline and to remove (nearly) identical models between evidence-based annotated bulbosum genotypes. 
+
+
+  A second clustering by CD-hit grouped similar source models to so called 'meta-clusters' with the following commands:
+
+  
+  
+
+
+  In a second 
 
 
 
