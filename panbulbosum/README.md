@@ -8,14 +8,22 @@
 
   In contrast to other genome projects using the gene projection pipeline, in the pan-bulbosum project gene projection were only used to complement for high quality gene models potentially missed in a evidence-based annotation. Figure 1 shows a simplified graphical overview of the workflow, detailed descriptions, scripts and parameters are listed in the following chapters.
 
+  The following tools and modules were used and are required:
+  - python 3.9 or higher
+  - biopython v1.81
+  - bioutils modules from parent 
+  - CD-hit[[1]](#1)
+  - orthofinder [[2]](#2)
+  - 
 
 ## 2. Preprocessing data
 
 ### 2.1 Non-redundant input (source) models
 
-  Input for the gene projections were evidence-based gene annotations as described in the Materials and Methods section of the manuscript. These proteins were clustered by CD-hit[[1]](#1) to obtain the input source models for the pipeline and to remove (nearly) identical models between evidence-based annotated bulbosum genotypes. This step reduces computational load by maintaining full sensitivity.
+  Input for the gene projections were evidence-based gene annotations as described in the Materials and Methods section of the manuscript. These proteins were clustered by CD-hit[[1]](#1) to obtain the input source models for the pipeline and to remove (nearly) identical models between evidence-based annotated bulbosum genotypes. This step reduces computational load by maintaining full sensitivity. The script <make_geneweights.py> reports the number of each (nearly) identical gene models per cluster in the file <hbulb.weights.txt>.
 
 > cd-hit -M 16000 -T 20 -S 4 -c 1.0 -o _hbulbosum.evidence.high.cdhit_ -i _protein.all.sources.fa_
+> python make_geneweights.py _hbulbosum.evidence.high.cdhit_ _hbulb.weights.txt_
 
   A second clustering by CD-hit grouped similar source models to so called 'meta-clusters' with the following commands. Meta-cluster information is used in the pipeline to track whether highly similar models have already been integrated in the step-wise projections (see pipeline overview in parent repo directory) to ensure balanced source insertions.
 
@@ -23,6 +31,10 @@
 > python make_metaclusters.py _hbulbosum.evidence.high.S10c95.cdhit.clstr_ _metafile_outputpath_
   
 ### 2.2 Orthologous source models
+
+  Hierarchical orthogroups were determined for the evidence based genes using orthofinder:
+
+> orthofinder -
 
 
 
