@@ -13,12 +13,12 @@
 
   Input for the gene projections were evidence-based gene annotations as described in the Materials and Methods section of the manuscript. These proteins were clustered by CD-hit[[1]](#1) to obtain the input source models for the pipeline and to remove (nearly) identical models between evidence-based annotated bulbosum genotypes. 
 
-> cd-hit -M 16000 -T 20 -S 4 -c 1.0 -o _nr.protein.cdhit_ -i _protein.all.sources.fa_
+> cd-hit -M 16000 -T 20 -S 4 -c 1.0 -o _hbulbosum.evidence.high.cdhit_ -i _protein.all.sources.fa_
 >
 
   A second clustering by CD-hit grouped similar source models to so called 'meta-clusters' with the following commands:
 
-> cd-hit -M 16000 -T 20 -S 4 -c 1.0 -o _nr.protein.cdhit_ -i _protein.all.sources.fa_
+> cd-hit -M 16000 -T 20 -S 10 -c 0.95 -o _hbulbosum._ -i _hbulbosum.evidence.high.cdhit_
 > python make_metaclusters.py _nnn_ _metafile_outputpath_
   
 
