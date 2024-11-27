@@ -28,11 +28,13 @@ The following tools and modules were used and are required:
   Input for the gene projections were evidence-based gene annotations as described in the Materials and Methods section of the manuscript. These proteins were clustered by CD-hit[[1]](#1) to obtain the input source models for the pipeline and to remove (nearly) identical models between evidence-based annotated bulbosum genotypes. This step reduces computational load by maintaining full sensitivity. The script <make_geneweights.py> reports the number of each (nearly) identical gene models per cluster in the file <hbulb.weights.txt>.
 
 > cd-hit -M 16000 -T 20 -S 4 -c 1.0 -o _hbulbosum.evidence.high.cdhit_ -i _protein.all.sources.fa_
+
 > python make_geneweights.py _hbulbosum.evidence.high.cdhit_ _hbulb.weights.txt_
 
   A second clustering by CD-hit grouped similar source models to so called 'meta-clusters' with the following commands. Meta-cluster information is used in the pipeline to track whether highly similar models have already been integrated in the step-wise projections (see pipeline overview in parent repo directory) to ensure balanced source insertions.
 
 > cd-hit -M 16000 -T 20 -S 10 -c 0.95 -o _hbulbosum.evidence.high.S10c95.cdhit.clstr_ -i _hbulbosum.evidence.high.cdhit_
+
 > python make_metaclusters.py _hbulbosum.evidence.high.S10c95.cdhit.clstr_ _metafile_outputpath_
   
 ### 2.2 Orthologous source models
