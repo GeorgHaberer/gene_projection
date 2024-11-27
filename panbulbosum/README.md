@@ -48,6 +48,7 @@ The following tools and modules were used and are required:
 ### 2.3 Additional preprocessing steps
 
   UTR (5') sizes of source models were computed from the GFF files of the evidence-based annotations using the script make_offsets.py and saved in the <hbulb.offsets.txt> file.
+  
   Plastid- and transposon-related genes were identified from the source models running the AHRD pipeline [[7]](#7) and this information was saved in files <plastid.codes> and <transposon.codes>. Based on this gene type information, transposon-derived models were removed from the input protein and transcript IDs and these clean sequence files were separately stored as <hbulb.clean.proteins.fa> and <hbulb.clean.transcripts.fa>. These files were employed as input sources for miniprot and blat alignments to reduce the high complexity of transposon mappings strongly impairing aligner performance.
 
 
