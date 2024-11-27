@@ -17,6 +17,9 @@ The following tools and modules were used and are required:
 - minimap2 [[3]](#3)
 - miniprot [[4]](#4)
 - blat v34 [[5]](#5)
+- hmmer/pfam v34 [[6]](#6)
+- optional AHRD [[7]](#7)
+
 
 ## 2. Preprocessing data
 
@@ -63,10 +66,14 @@ see also https://github.com/lh3/miniprot
 
 <a id="5">[5]</a>
 Kent WJ. BLAT--the BLAST-like alignment tool. Genome Res. 2002 Apr;12(4):656-64. doi: 10.1101/gr.229202. PMID: 11932250; PMCID: PMC187518
-see also
+see also http://hgdownload.cse.ucsc.edu/admin/exe/linux.x86_64/blat/
 
 <a id="6">[6]</a>
 Pfam: The protein families database in 2021: J. Mistry, S. Chuguransky, L. Williams, M. Qureshi, G.A. Salazar, E.L.L. Sonnhammer, S.C.E. Tosatto, L. Paladin, S. Raj, L.J. Richardson, R.D. Finn, A. Bateman, Nucleic Acids Research (2021) doi: 10.1093/nar/gkaa913
+see also https://github.com/EddyRivasLab/hmmer
+
+<a id="7">[7]</a>
+AHRD: https://github.com/groupschoof/AHRD
 
 
 
