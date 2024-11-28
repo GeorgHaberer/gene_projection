@@ -51,6 +51,13 @@ The following tools and modules were used and are required:
   
   Plastid- and transposon-related genes were identified from the source models running the AHRD pipeline [[7]](#7) and this information was saved in files <plastid.codes> and <transposon.codes>. Based on this gene type information, transposon-derived models were removed from the input protein and transcript IDs and these clean sequence files were separately stored as <hbulb.clean.proteins.fa> and <hbulb.clean.transcripts.fa>. These files were employed as input sources for miniprot and blat alignments to reduce the high complexity of transposon mappings strongly impairing aligner performance.
 
+  Lastly, hmmer [[6]](#6) and PFAM database version 34 searched and identified protein domains in the source model and associated the top evalue to each input protein/transcript.
+
+
+## 3. De novo projections
+
+
+
 
 
 
