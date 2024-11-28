@@ -8,6 +8,15 @@
 
   In contrast to other genome projects using the gene projection pipeline, in the pan-bulbosum project gene projection were only used to complement for high quality gene models potentially missed in a evidence-based annotation. Figure 1 shows a simplified graphical overview of the workflow, detailed descriptions, scripts and parameters are listed in the following chapters.
 
+  **Fig1. Workflow of the pan-bulbosum projections.**
+<p align="center">
+  <img src="/images/workflow_scheme.png" width="600">
+</p>
+
+<p>
+  <br />
+</p>
+
 The following tools and modules were used and are required:
 - python 3.9 or higher
 - biopython v1.81
