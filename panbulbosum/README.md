@@ -72,10 +72,15 @@ The following tools and modules were used and are required:
 
   Next, initial mappings of the non-redundant source genes were obtained using bulb_annopipe.py script:
 
-> python bulb_annopipe.py _<genotype>_ _<genome_fasta_file_of_genotype>_
+> python bulb_annopipe.py  _<genotype>_  _<genome_fasta_file_of_genotype>_
 >
 
-  From the initial mappings, a set of projected models as consolidation candidates were generated applying the script anno_projection.py. The pipeline inserts in a step-wise manner non-overlapping initial mappings by quality criteria (see section 2), progressing from higher to lower qualities (see also parent repo directory https://github.com/GeorgHaberer/gene_projection for more details). Only complete matches with a start and stop codon were used. There were five steps with the following criteria:
+  From the initial mappings, a set of projected models as consolidation candidates were generated applying the script anno_projection.py. 
+  
+> python anno_projection.py  _<genotype>_  _<genome_fasta_file_of_genotype>_
+>
+
+The pipeline inserts in a step-wise manner non-overlapping initial mappings by quality criteria (see section 2), progressing from higher to lower qualities (see also parent repo directory https://github.com/GeorgHaberer/gene_projection for more details). Only complete matches with a start and stop codon were used. There were five steps with the following criteria:
   1. No transposon models, pfam domain with an e-value < 0.01, and at most one member of the metaclusters.
   2. No transposon or plastid models, and at most one member of the metaclusters.
   3. Neither transposon or plastid derived source models, pfam domain with an e-value < 0.01, at least 6 orthologs and a relative score >= 0.9. No restrictions on multiple  insertions of same or highly similar (metaclusters) sources.
