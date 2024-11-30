@@ -75,27 +75,19 @@ The following tools and modules were used and are required:
 > python bulb_annopipe.py _<genotype>_ _<genome_fasta_file_of_genotype>_
 >
 
-  From the initial mappings, a set of projected models as consolidation candidates were generated applying the script anno_projection.py. The pipeline inserts in a step-wise manner non-overlapping initial mappings by quality criteria (see section 2), progressing from higher to lower qualities (see also parent repo directory https://github.com/GeorgHaberer/gene_projection for more details). There were five steps with the following criteria:
-  1. No transposon models, pfam domain with an e-value < 0.01, and at least one ortholog
-  2. 
-
+  From the initial mappings, a set of projected models as consolidation candidates were generated applying the script anno_projection.py. The pipeline inserts in a step-wise manner non-overlapping initial mappings by quality criteria (see section 2), progressing from higher to lower qualities (see also parent repo directory https://github.com/GeorgHaberer/gene_projection for more details). Only complete matches with a start and stop codon were used. There were five steps with the following criteria:
+  1. No transposon models, pfam domain with an e-value < 0.01, and at most one member of the metaclusters.
+  2. No transposon or plastid models, and at most one member of the metaclusters.
+  3. Neither transposon or plastid derived source models, pfam domain with an e-value < 0.01, at least 6 orthologs and a relative score >= 0.9. No restrictions on multiple  insertions of same or highly similar (metaclusters) sources.
+  4. No transposon source models, a relative match score >= 0.9, and either a pfam domain e-value < 0.01 or at least two orthologs.
+  5. Only transposon sources with a relative match score >= 0.9 and at most one member of the metaclusters.
 
 
 ## 4. Consolidation
 
 
 
-
-    trgmatches = [x[0] for x in allmatches if x[3] <= 0.01 and x[4] == False and x[10] > 0]
-    
-    trgmatches = [x[0] for x in allmatches if x[4] == False and x[13] == False and x[10] > 0]
-    
-    trgmatches = [x[0] for x in allmatches if x[3] <= 0.01 and x[4] == False and x[13] == False and x[5] >= 6 and x[8] >= 0.9]
-    
-    trgmatches = [x[0] for x in allmatches if (x[3] <= 0.01 or x[5] >= 2) and x[4] == False and x[8] >= 0.9]
-    
-    trgmatches = [x[0] for x in allmatches if x[4] == True and x[8] >= 0.9]
-    
+   
 
 
 
