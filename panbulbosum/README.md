@@ -85,6 +85,11 @@ The following tools and modules were used and are required:
 
 ## 4. Consolidation
 
+  To complement the annotations of the single genotypes, high quality candidates of the projections were inserted in the evidence-based annotations if they did not overlap by their coding sequence and contained a pfam domain with an e-value <= 1e-30:
+
+> python pad_annos.py
+>
+
 
 
    
