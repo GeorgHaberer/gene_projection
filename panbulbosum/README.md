@@ -70,9 +70,18 @@ The following tools and modules were used and are required:
 > python score_parallel.py -i _hbulbosum.evidence.high.cdhit_ -n 5 -o _hbulb.maxscores.txt_
 >
 
-  Next, initial mappings of the non-redundant source genes were obtained from bulb_annopipe.py:
+  Next, initial mappings of the non-redundant source genes were obtained using bulb_annopipe.py script:
 
-> python bulb_annopipe.py
+> python bulb_annopipe.py _<genotype>_ _<genome_fasta_file_of_genotype>_
+>
+
+  From the initial mappings, a set of projected models as consolidation candidates were generated applying the script anno_projection.py. The pipeline inserts in a step-wise manner non-overlapping initial mappings by quality criteria (see section 2), progressing from higher to lower qualities (see also parent repo directory https://github.com/GeorgHaberer/gene_projection for more details). There were five steps with the following criteria:
+  1. No transposon models, pfam domain with an e-value < 0.01, and at least one ortholog
+  2. 
+
+
+
+## 4. Consolidation
 
 
 
