@@ -65,9 +65,28 @@ The following tools and modules were used and are required:
 
 ## 3. De novo projections
 
+  The aim of this project was not to make a _de novo_ annotation of the H. bulbosum genotypes by projections but rather to identify high quality candidates from a compilation of evidence-based gene models to complement their annotations. Because the projection pipeline scores mappings of the input sources relative to their maximal achievable score, ie. alignment of the source protein to itself, self scores of the non-redundant input of section 2 were determined by score_parallel.py:
+
+> python score_parallel.py -i _hbulbosum.evidence.high.cdhit_ -n 5 -o _hbulb.maxscores.txt_
+>
+
+  Next, initial mappings of the non-redundant source genes were obtained from bulb_annopipe.py:
+
+> python bulb_annopipe.py
 
 
 
+
+    trgmatches = [x[0] for x in allmatches if x[3] <= 0.01 and x[4] == False and x[10] > 0]
+    
+    trgmatches = [x[0] for x in allmatches if x[4] == False and x[13] == False and x[10] > 0]
+    
+    trgmatches = [x[0] for x in allmatches if x[3] <= 0.01 and x[4] == False and x[13] == False and x[5] >= 6 and x[8] >= 0.9]
+    
+    trgmatches = [x[0] for x in allmatches if (x[3] <= 0.01 or x[5] >= 2) and x[4] == False and x[8] >= 0.9]
+    
+    trgmatches = [x[0] for x in allmatches if x[4] == True and x[8] >= 0.9]
+    
 
 
 
