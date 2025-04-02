@@ -2,7 +2,7 @@
 
 ## 0. Preliminary Remark
 
-  This project is under active development and has already been used in several plant (pan-)genome projects[^1] [^2]. To provide a transparent and persistent documentation, description and code for specific versions applied in each project are hosted in sub-directories. A general overview and rationale of the pipeline are provided here at the main site while exact parameter settings and workflows are described in the respective sub-directories.
+  This project is under active development and has already been used in several plant (pan-)genome projects[^1] [^2] [^3]. To provide a transparent and persistent documentation, description and code for specific versions applied in each project are hosted in sub-directories. A general overview and rationale of the pipeline are provided here at the main site while exact parameter settings and workflows are described in the respective sub-directories.
 
 
 ## 1. Introduction and Motivation
@@ -165,6 +165,10 @@ A publication of the pipeline is in progress, in the meantime, if you use code f
 [^1]: Walkowiak, S, Gao, L, Monat, C, Haberer G, et al. Multiple wheat genomes reveal global variation in modern breeding. Nature 588, 277–283 (2020). https://doi.org/10.1038/s41586-020-2961-x
 
 [^2]: Jayakodi M, Padmarasu S, Haberer G, et al. The barley pan-genome reveals the hidden legacy of mutation breeding. Nature. 2020 Dec;588(7837):284-289. https://doi:10.1038/s41586-020-2947-8.
+
+[^3]: Jayakodi, M., Lu, Q., Pidon, H. et al. Structural variation in the pangenome of wild and domesticated barley. Nature 636, 654–662 (2024). https://doi.org/10.1038/s41586-024-08187-1
+
+
 
 
 
