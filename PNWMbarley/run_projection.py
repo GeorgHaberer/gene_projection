@@ -9,6 +9,12 @@ sys.path.append("/home/pgsb/georg.haberer/src/pyprojects/bioutils")
 from biosequences import FastaSequence
 from mymatches import getMatches, getScaffolds, getSupplementaryInfos
 
+sys.path.append("PATH_TO_PIPELINE_UTIL_MODULES")   # see github repo gene_projection for these modules
+sys.path.append("PATH_TO_BIOUTILS_MODULE")  # see github repo gene_projection for this module
+from chunk_genome import chunkit
+from miniprotgff_to_gff import transformMiniProtGFF
+from psl2gff import psl2gff
+
 
 
 def outputAnno(annotation: list, scaffolds: dict, outdir: str, genotype: str, version: int, rndcount: int):
