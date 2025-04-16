@@ -7,26 +7,23 @@ import subprocess
 import multiprocessing
 from Bio import SeqIO
 
-sys.path.append("/home/pgsb/georg.haberer/src/pyprojects/wildbarley/")
-sys.path.append("/home/pgsb/georg.haberer/src/pyprojects/bioutils")
-from chunk_genome_jeffids import chunkit
+sys.path.append("PATH_TO_PIPELINE_UTIL_MODULES")   # see github repo gene_projection for these modules
+sys.path.append("PATH_TO_BIOUTILS_MODULE")  # see github repo gene_projection for this module
+from chunk_genome import chunkit
 from miniprotgff_to_gff import transformMiniProtGFF
 from psl2gff import psl2gff
 
 from transformPAF_new import paf_transformer_new
-
-
 from biosequences import GenomicTemplate
 
-WILDHV_ROOT = "/lustre/groups/pgsb/workspaces/georg.haberer/wildbarley"
-JEFF_ROOT = "/lustre/groups/pgsb/workspaces/georg.haberer/barley_jeff"
-OFFSETFILE = os.path.join(WILDHV_ROOT, "datasets", "offsets.txt")
-TFASTA = os.path.join(WILDHV_ROOT, "datasets", "alltranscripts.cdhit.fa")
-PFASTA = os.path.join(WILDHV_ROOT, "datasets", "allproteins.cdhit")
+PNWM_ROOT = "ROOT_DIRECTORY_FOR_THE_FIVE_GENOTYPE_SEQDATA"  # this directory should contain all input sequences in 'datasets'
+OFFSETFILE = os.path.join(PNWM_ROOT, "datasets", "offsets.txt")  
+TFASTA = os.path.join(PNWM_ROOT, "datasets", "alltranscripts.cdhit.fa")
+PFASTA = os.path.join(PNWM_ROOT, "datasets", "allproteins.cdhit")
 
-MMAP2 = "/home/pgsb/georg.haberer/bin/minimap2/./minimap2"
-MINIPROT = "/home/pgsb/georg.haberer/bin/miniprot/./miniprot"
-BLAT = "/home/pgsb/georg.haberer/bin/./blat"
+MMAP2 = "$YOUR_PATH_TO_MINIMAP2_INSTALLATION/./minimap2"
+MINIPROT = "$YOUR_PATH_TO_MINIPROT_INSTALLATION/./miniprot"
+BLAT = "$YOUR_PATH_TO_BLAT_INSTALLATION/./blat"
 
 
 def runblat(batch):
@@ -40,11 +37,10 @@ def runblat(batch):
     subprocess.run(CMD)
     return
 
-
 def runbatch(genotype, genomefile):
 
     # first make output directory
-    OUTDIR = os.path.join(JEFF_ROOT, "projections", genotype)
+    OUTDIR = os.path.join(PNWM_ROOT, "projections", genotype)
     try:
         os.mkdir(OUTDIR)
     except OSError:
@@ -58,6 +54,7 @@ def runbatch(genotype, genomefile):
     ctgfiles = ["%s.fa" %(ctg) for ctg in ctgnames]
     os.system("cat %s > genome.fasta" %(' '.join(ctgfiles)))
     oocfile = os.path.join(OUTDIR, "%s.11.ooc" %(genotype))
+    # for speed up blat we first mask kmers with high occurrences
     subprocess.run([BLAT, "genome.fasta", "/dev/null", "/dev/null", "-makeOoc=%s" %(oocfile),  "-repMatch=1024"])
 
     # now for each chromosome
@@ -99,7 +96,7 @@ def runbatch(genotype, genomefile):
         for rec in SeqIO.parse(PFASTA, "fasta"):
             protdict[rec.id] = rec
 
-        # # we make 20 batches
+        # # we make 20 batches, you would have to adjust in the batch queue for the number of cores you've asked for !!
         bsize = int(len(transcripts)/20)
         batches = [(i, transcripts[i:i + bsize], os.path.join(OUTDIR, ctgfile), genotype,
                     os.path.join(OUTDIR, "%s.batch%i.psltmp" %(ctg, i))) for i in range(0, len(transcripts), bsize)]
@@ -141,7 +138,6 @@ def runbatch(genotype, genomefile):
         for tmppsl in tmp_pslfiles:
             subprocess.run(["rm", tmppsl])
 
-
     os.chdir(OUTDIR)
     subprocess.run(["rm", "genome.fasta"])
 
@@ -149,6 +145,9 @@ def runbatch(genotype, genomefile):
 
 if __name__ == '__main__':
 
+    # because we fixed the other project paths for the PNWM project (a little quick fast dirty here :) )
+    # we only need the genotype and the (absolute!) path of the genome sequence as command line args for
+    # running it in the batch queue
     gt = sys.argv[1]
     genomefile = sys.argv[2]
     runbatch(genotype=gt, genomefile=genomefile)
