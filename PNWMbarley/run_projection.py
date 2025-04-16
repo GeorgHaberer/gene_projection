@@ -100,22 +100,20 @@ def complementAnnotation(matches: list, annotation: list, rnd: int, seensrc: set
 
 def annoOneLine(genotype: str, genomepath: str):
 
-    WILDHV_ROOT = "/lustre/groups/pgsb/workspaces/georg.haberer/wildbarley"
     JEFF_HOME = "/lustre/groups/pgsb/workspaces/georg.haberer/barley_jeff"
     ANNO_HOME = os.path.join(JEFF_HOME, "projections", genotype)
     DATA_HOME = os.path.join(WILDHV_ROOT, "datasets")
-
     
-
+    PNWM_ROOT = "ROOT_DIRECTORY_FOR_THE_FIVE_GENOTYPE_SEQDATA"  # this directory should contain all input sequences in 'datasets'
+    OFFSETFILE = os.path.join(PNWM_ROOT, "datasets", "offsets.txt")  
+    TFASTA = os.path.join(PNWM_ROOT, "datasets", "alltranscripts.cdhit.fa")
+    PFASTA = os.path.join(PNWM_ROOT, "datasets", "allproteins.cdhit")
+    
     # read source features
     os.chdir(DATA_HOME)
     maxscores, ocounts, metamap, weights, domains, transposon_codes, plastid_codes = getSupplementaryInfos(DATA_HOME)
     scaffolds = getScaffolds(genomepath)
-    buscos = set()
-    with open("buscoids.txt") as fhd:
-        for line in fhd:
-            buscos.add(line.strip())
-
+   
     # get all matches as list for annotation
 
     # read all (contiguous) matches of all programs
@@ -123,8 +121,6 @@ def annoOneLine(genotype: str, genomepath: str):
     allmatches = getMatches(ANNO_HOME, maxscores=maxscores, weights=weights, domains=domains, ocounts=ocounts,
                             metamap=metamap, transposon_codes=transposon_codes)
 
-    
-    
     ######################################################
     # now run rule based insertion
 
@@ -135,7 +131,7 @@ def annoOneLine(genotype: str, genomepath: str):
     meta = set()
     annotation = []
     rndcount = 1
-    fsort = attrgetter('score2', 'prg')
+    fsort = attrgetter('score2', 'prg')  # this sort rule does it
 
     trgmatches = [x[0] for x in allmatches if x[3] <= 0.01 and x[4] == False and x[10] > 0]
     annotation, seen, meta = complementAnnotation(trgmatches, annotation, rndcount, seen, meta, uniqsrc=False,
